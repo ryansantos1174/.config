@@ -1,0 +1,25 @@
+2022/11/23-15:21:27.375 d0b3 Reusing MANIFEST /home/ryan/.config/Microsoft/Microsoft Teams/Local Storage/leveldb/MANIFEST-000001
+2022/11/23-15:21:27.377 d0b3 Recovering log #3
+2022/11/23-15:21:27.379 d0b3 Level-0 table #3: started
+2022/11/23-15:21:27.383 d0b3 Level-0 table #3: 388878 bytes OK
+2022/11/23-15:21:27.385 d0b3 Delete type=0 #3
+2022/11/23-15:22:40.604 d1ee Level-0 table #6: started
+2022/11/23-15:22:40.616 d1ee Level-0 table #6: 389041 bytes OK
+2022/11/23-15:22:40.617 d1ee Delete type=0 #4
+2022/11/23-15:23:40.667 d1ee Level-0 table #8: started
+2022/11/23-15:23:40.678 d1ee Level-0 table #8: 222590 bytes OK
+2022/11/23-15:23:40.679 d1ee Delete type=0 #5
+2022/11/23-16:42:57.599 d1ee Level-0 table #10: started
+2022/11/23-16:42:57.609 d1ee Level-0 table #10: 99212 bytes OK
+2022/11/23-16:42:57.610 d1ee Delete type=0 #7
+2022/11/23-16:42:57.611 d1ee Compacting 4@0 + 0@1 files
+2022/11/23-16:42:57.617 d1ee Generated table #11@0: 94 keys, 567632 bytes
+2022/11/23-16:42:57.617 d1ee Compacted 4@0 + 0@1 files => 567632 bytes
+2022/11/23-16:42:57.618 d1ee compacted to: files[ 0 1 0 0 0 0 0 ]
+2022/11/23-16:42:57.618 d1ee Delete type=2 #8
+2022/11/23-16:42:57.618 d1ee Delete type=2 #3
+2022/11/23-16:42:57.618 d1ee Delete type=2 #6
+2022/11/23-16:42:57.618 d1ee Delete type=2 #10
+2022/11/23-16:45:07.064 d1ee Level-0 table #13: started
+2022/11/23-16:45:07.066 d1ee Level-0 table #13: 69806 bytes OK
+2022/11/23-16:45:07.068 d1ee Delete type=0 #9

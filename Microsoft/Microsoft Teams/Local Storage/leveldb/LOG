@@ -1,0 +1,5 @@
+2022/11/23-21:05:56.866 ca67 Reusing MANIFEST /home/ryan/.config/Microsoft/Microsoft Teams/Local Storage/leveldb/MANIFEST-000001
+2022/11/23-21:05:56.866 ca67 Recovering log #12
+2022/11/23-21:05:56.870 ca67 Level-0 table #15: started
+2022/11/23-21:05:56.878 ca67 Level-0 table #15: 578555 bytes OK
+2022/11/23-21:05:56.879 ca67 Delete type=0 #12

@@ -1,0 +1,26 @@
+2022/11/23-21:05:58.818 cad7 Reusing MANIFEST /home/ryan/.config/Microsoft/Microsoft Teams/IndexedDB/https_teams.microsoft.com_0.indexeddb.leveldb/MANIFEST-000001
+2022/11/23-21:05:58.818 cad7 Recovering log #4
+2022/11/23-21:05:58.826 cad7 Reusing old log /home/ryan/.config/Microsoft/Microsoft Teams/IndexedDB/https_teams.microsoft.com_0.indexeddb.leveldb/000004.log 
+2022/11/23-21:05:59.054 cafa Level-0 table #8: started
+2022/11/23-21:05:59.060 cafa Level-0 table #8: 766531 bytes OK
+2022/11/23-21:05:59.062 cafa Delete type=0 #4
+2022/11/23-21:05:59.062 cafa Manual compaction at level-0 from '\x00\x0c\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x0d\x00\x00\x00' @ 0 : 0; will stop at (end)
+2022/11/23-21:05:59.062 cafa Manual compaction at level-1 from '\x00\x0c\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x0d\x00\x00\x00' @ 0 : 0; will stop at '\x00"\x01\x02\x01\x10\x00p\x00r\x00i\x00v\x00_\x00d\x00a\x00t\x00a\x00b\x00a\x00s\x00e\x00_\x00i\x00d' @ 22225 : 1
+2022/11/23-21:05:59.062 cafa Compacting 1@1 + 1@2 files
+2022/11/23-21:05:59.074 cafa Generated table #9@1: 6130 keys, 1212298 bytes
+2022/11/23-21:05:59.074 cafa Compacted 1@1 + 1@2 files => 1212298 bytes
+2022/11/23-21:05:59.075 cafa compacted to: files[ 0 0 1 0 0 0 0 ]
+2022/11/23-21:05:59.075 cafa Delete type=2 #8
+2022/11/23-21:05:59.075 cafa Manual compaction at level-1 from '\x00"\x01\x02\x01\x10\x00p\x00r\x00i\x00v\x00_\x00d\x00a\x00t\x00a\x00b\x00a\x00s\x00e\x00_\x00i\x00d' @ 22225 : 1 .. '\x00\x0d\x00\x00\x00' @ 0 : 0; will stop at (end)
+2022/11/23-21:05:59.254 cafa Level-0 table #11: started
+2022/11/23-21:05:59.257 cafa Level-0 table #11: 151500 bytes OK
+2022/11/23-21:05:59.258 cafa Delete type=0 #7
+2022/11/23-21:05:59.258 cafa Delete type=2 #5
+2022/11/23-21:05:59.258 cafa Manual compaction at level-0 from '\x00\x11\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x12\x00\x00\x00' @ 0 : 0; will stop at (end)
+2022/11/23-21:05:59.258 cafa Manual compaction at level-1 from '\x00\x11\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x12\x00\x00\x00' @ 0 : 0; will stop at '\x00$\x00\x00\x05' @ 23105 : 1
+2022/11/23-21:05:59.258 cafa Compacting 1@1 + 1@2 files
+2022/11/23-21:05:59.264 cafa Generated table #12@1: 1821 keys, 293594 bytes
+2022/11/23-21:05:59.264 cafa Compacted 1@1 + 1@2 files => 293594 bytes
+2022/11/23-21:05:59.265 cafa compacted to: files[ 0 0 1 0 0 0 0 ]
+2022/11/23-21:05:59.265 cafa Delete type=2 #11
+2022/11/23-21:05:59.265 cafa Manual compaction at level-1 from '\x00$\x00\x00\x05' @ 23105 : 1 .. '\x00\x12\x00\x00\x00' @ 0 : 0; will stop at (end)
