@@ -20,7 +20,7 @@ function run {
 
 #change your keyboard if you need it
 #setxkbmap -layout be
-
+setxkbmap -option caps:escape
 keybLayout=$(setxkbmap -v | awk -F "+" '/symbols/ {print $2}')
 if [ $keybLayout = "be" ]; then
   cp $HOME/.config/qtile/config-azerty.py $HOME/.config/qtile/config.py
@@ -46,13 +46,13 @@ numlockx on &
 blueberry-tray &
 picom --config $HOME/.config/qtile/scripts/picom.conf &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-/usr/lib/xfce4/notifyd/xfce4-notifyd &
-
-
+/usr/bin/dunst &
+# Hide Mouse
+unclutter &
 
 
 #starting user applications at boot time
-run volumeicon &
+run pnmixer &
 #run discord &
 #nitrogen --restore &
 #run caffeine -a &

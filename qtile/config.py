@@ -41,13 +41,18 @@ keys=[
     Key([mod, "shift"], "q", lazy.window.kill()),
     Key([mod, "shift"], "r", lazy.restart()),
 
-    Key([mod], "n", lazy.layout.normalize()),
     Key([mod], "space", lazy.next_layout()),
 
     Key([mod], "k", lazy.layout.up()),
     Key([mod], "j", lazy.layout.down()),
     Key([mod], "h", lazy.layout.left()),
     Key([mod], "l", lazy.layout.right()),
+
+    # MOVE WINDOWS UP OR DOWN MONADTALL/MONADWIDE LAYOUT
+    Key([mod, "shift"], "k", lazy.layout.shuffle_up()),
+    Key([mod, "shift"], "j", lazy.layout.shuffle_down()),
+    Key([mod, "shift"], "h", lazy.layout.swap_left()),
+    Key([mod, "shift"], "l", lazy.layout.swap_right()),
 
     Key([mod, "control"], "l",
         lazy.layout.grow_right(),
@@ -70,10 +75,13 @@ keys=[
         lazy.layout.grow_down(),
         lazy.layout.shrink(),
         lazy.layout.increase_nmaster(),
-        )
+        ),
+    Key([mod, "shift"], "f", lazy.layout.flip()),
+
         ]
 
 groups = [ScratchPad("0", [DropDown("Passwords", ['emacs' , '-f', 'pass', '-f', 'doom/window-maximize-buffer'], width=0.3),
+                           DropDown("Notes", ['emacs' , '-f', 'org-capture', '-f', 'doom/window-maximize-buffer'], width=0.3),
                                  DropDown("Terminal", "alacritty", width=0.3),
                                  DropDown("Browser", "firefox --new-instance", width=0.3)]),
           Group(name="1", layout="monadtall", label="Main", matches=Match(wm_class=["Emacs"])),
@@ -100,17 +108,40 @@ keys.extend([
     Key([mod, "shift"], "6", lazy.window.togroup("6"), lazy.group["6"].toscreen()),
     Key([mod], "p", lazy.group["0"].dropdown_toggle('Passwords')),
     Key([mod], "t", lazy.group["0"].dropdown_toggle('Terminal')),
-    Key([mod, 'shift'], 'b', lazy.group['0'].dropdown_toggle('Browser'))
+    Key([mod, 'shift'], 'b', lazy.group['0'].dropdown_toggle('Browser')),
+    Key([mod], "n", lazy.group['0'].dropdown_toggle('Notes'))
 ])
 
+def init_layout_theme():
+    return {"margin":5,
+            "border_width":2,
+            "border_focus": "#fe8019",
+            "border_normal": "#4c566a"
+            }
+
+layout_theme = init_layout_theme()
+
+
+layouts = [
+    #layout.MonadTall(margin=8, border_width=2, border_focus="#5e81ac", border_normal="#4c566a"),
+    layout.MonadTall(**layout_theme),
+    #layout.MonadWide(margin=8, border_width=2, border_focus="#5e81ac", border_normal="#4c566a"),
+    layout.MonadWide(**layout_theme),
+    layout.Matrix(**layout_theme),
+    layout.Bsp(**layout_theme),
+    layout.Floating(**layout_theme),
+    layout.RatioTile(**layout_theme),
+    layout.Max(**layout_theme)
+]
+
 def init_colors():
-    return [["#2F343F", "#2F343F"], # color 0
-            ["#2F343F", "#2F343F"], # color 1
-            ["#c0c5ce", "#c0c5ce"], # color 2
-            ["#fba922", "#fba922"], # color 3
-            ["#3384d0", "#3384d0"], # color 4
-            ["#f3f4f5", "#f3f4f5"], # color 5
-            ["#cd1f3f", "#cd1f3f"], # color 6
+    return [["#282828", "#282828"], # color 0
+            ["#928374", "#928374"], # color 1
+            ["#fb4934", "#fb4934"], # color 2
+            ["#98971a", "#98971a"], # color 3
+            ["#d79921", "#d79921"], # color 4
+            ["#fe8019", "#fe8019"], # color 5
+            ["#ebdbb2", "#ebdbb2"], # color 6
             ["#62FF00", "#62FF00"], # color 7
             ["#6790eb", "#6790eb"], # color 8
             ["#a9a9a9", "#a9a9a9"]] # color 9
@@ -120,7 +151,7 @@ def init_widgets_defaults():
     return dict(font="Noto Sans",
                 fontsize = 12,
                 padding = 2,
-                background=colors[1])
+                background=colors[0])
 
 widget_defaults = init_widgets_defaults()
 
@@ -135,52 +166,52 @@ def init_widgets_list():
                         padding_x = 5,
                         borderwidth = 0,
                         disable_drag = True,
-                        active = colors[9],
-                        inactive = colors[5],
+                        active = colors[5],
+                        inactive = colors[1],
                         rounded = False,
                         highlight_method = "text",
-                        this_current_screen_border = colors[8],
-                        foreground = colors[2],
-                        background = colors[1]
+                        this_current_screen_border = colors[2],
+                        foreground = colors[6],
+                        background = colors[0]
                         ),
                widget.Sep(
                         linewidth = 1,
                         padding = 10,
-                        foreground = colors[2],
-                        background = colors[1]
+                        foreground = colors[6],
+                        background = colors[0]
                         ),
                widget.CurrentLayout(
                         font = "Noto Sans Bold",
-                        foreground = colors[5],
-                        background = colors[1]
+                        foreground = colors[6],
+                        background = colors[0]
                         ),
                widget.Sep(
                         linewidth = 1,
                         padding = 10,
-                        foreground = colors[2],
-                        background = colors[1]
+                        foreground = colors[6],
+                        background = colors[0]
                         ),
                widget.WindowName(font="Noto Sans",
                         fontsize = 12,
-                        foreground = colors[5],
-                        background = colors[1],
+                        foreground = colors[6],
+                        background = colors[0],
                         ),
                widget.TextBox(
                         font="FontAwesome",
                         text="  ",
                         foreground=colors[3],
-                        background=colors[1],
+                        background=colors[0],
                         padding = 0,
                         fontsize=16
                         ),
                widget.Clock(
                         foreground = colors[5],
-                        background = colors[1],
+                        background = colors[0],
                         fontsize = 12,
                         format="%Y-%m-%d %H:%M"
                         ),
                widget.Systray(
-                        background=colors[1],
+                        background=colors[0],
                         icon_size=20,
                         padding = 4
                         ),

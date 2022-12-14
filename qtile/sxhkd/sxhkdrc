@@ -98,18 +98,6 @@ ctrl + shift + Escape
 #     MULTIMEDIA KEYS
 #################################################################
 
-#Raises volume
-XF86AudioRaiseVolume
-    amixer set Master 10%+
-
-#Lowers volume
-XF86AudioLowerVolume
-    amixer set Master 10%-
-
-#Mute
-XF86AudioMute
-    amixer -D pulse set Master 1+ toggle
-
 #Playerctl works for Pragha, Spotify and others
 #Delete the line for playerctl if you want to use mpc
 #and replace it with the corresponding code
@@ -120,15 +108,15 @@ XF86AudioMute
 #mpc stop
 
 #PLAY
-XF86AudioPlay
+F7
     playerctl play-pause
 
 #Next
-XF86AudioNext
+F8
     playerctl next
 
 #previous
-XF86AudioPrev
+F6
     playerctl previous
 
 #Stop
