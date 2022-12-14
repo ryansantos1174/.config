@@ -15,7 +15,7 @@
      ("NO" . +org-todo-cancel)
      ("KILL" . +org-todo-cancel)))
  '(package-selected-packages
-   '(evil-mc olivetti elpy pdf-tools org-modern lsp-ui flycheck exwm exec-path-from-shell blacken)))
+   '(org-journal evil-mc olivetti elpy pdf-tools org-modern lsp-ui flycheck exwm exec-path-from-shell blacken)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

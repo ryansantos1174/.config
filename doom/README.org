@@ -16,15 +16,10 @@ Used to identify you for some applications
 
 Setting up theme and font
 #+begin_src emacs-lisp
-(setq doom-theme 'doom-monokai-pro)
+(setq doom-theme 'doom-nord)
 (setq doom-font "SauceCodePro Nerd Font-14")
 (setq display-line-numbers-type 'relative)
-#+end_src
-Center Text in buffer
-#+begin_src emacs-lisp
-(use-package! olivetti
-  :ensure t)
-(olivetti-mode t)
+(doom/set-frame-opacity 90)
 #+end_src
 Telling Emacs where to execute shell scripts from
 #+begin_src emacs-lisp
@@ -34,7 +29,7 @@ Telling Emacs where to execute shell scripts from
 #+end_src
 Disabling auto-completion of parentheses
 #+begin_src emacs-lisp
-(smartparens-mode 0);
+(remove-hook 'doom-first-buffer-hook #'smartparens-global-mode);
 
 #+end_src
 * Window Management
@@ -63,17 +58,27 @@ Setting up templates for capturing TODO items
   (setq org-capture-templates
         '(("p" "Project" entry
            (file+headline "~/Documents/ToDo/inbox.org" "Tasks")
-                "*TODO %i%?"
-                :kill-buffer t)
+           "*TODO %i%?"
+           :kill-buffer t)
           ("t" "Todo [inbox]" entry
            (file+headline "~/Documents/ToDo/inbox.org" "Tasks")
-                          "* TODO %i%?"
-                          :kill-buffer t)
-           ("T" "Tickler" entry
-            (file+headline "~/Documents/ToDo/tickler.org" "Tickler")
-            "* %i%? \n %U"
-            :kill-buffer t))))
+           "* TODO %i%?"
+           :kill-buffer t)
+          ("T" "Tickler" entry
+           (file+headline "~/Documents/ToDo/tickler.org" "Tickler")
+           "* %i%? \n %U"
+           :kill-buffer t)
+             ("n" "Unrefined Notes" plain
+              (file "~/.tmp/DailyResearchNotes.org")
+              "* %i%? %t %^G "
+              :kill-buffer t)
+               )))
 #+end_src
+
+#+RESULTS:
+| p | Project      | entry | (file+headline ~/Documents/ToDo/inbox.org Tasks)     | *TODO %i%?  | :kill-buffer | t |
+| t | Todo [inbox] | entry | (file+headline ~/Documents/ToDo/inbox.org Tasks)     | * TODO %i%? | :kill-buffer | t |
+| T | Tickler      | entry | (file+headline ~/Documents/ToDo/tickler.org Tickler) | * %i%?      |              |   |
 
 Setup Refiling targets in org mode
 #+begin_src emacs-lisp
@@ -117,7 +122,7 @@ Making Org mode pretty
 
 #+end_src
 
-** Org-Babel
+*** Org-Babel
 Active babel languages
 #+begin_src emacs-lisp
 (org-babel-do-load-languages
@@ -125,9 +130,34 @@ Active babel languages
  '((shell . t)))
 
 #+end_src
-** Org-Agenda
+*** Org-Agenda
 #+begin_src emacs-lisp
 (setq calendar-week-start-day 1)
+
+#+end_src
+*** Org Roam
+#+begin_src emacs-lisp
+(use-package org-roam
+  :ensure t
+  :custom
+  (org-roam-directory "~/Documents/RoamNotes")
+  (org-roam-completion-everywhere t)
+  (org-roam-capture-templates
+   '(("d" "default" plain
+      "%?"
+      :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
+      :unnarrowed t)
+     ("n" "New Research Note" plain
+      "*Disappearing Tracks \n \n *Pixels"
+      :if-new (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
+      :unnarrowed t)))
+  (org-roam-dailies-capture-templates
+   '(("d" "Research" plain "* Disappearing Tracks  \n\n* Pixels " :target
+  (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n"))))
+
+  :config
+  (org-roam-setup))
+
 
 #+end_src
 * Custom Package Setup
@@ -141,8 +171,8 @@ Changing default sounds
 (setq org-pomodoro-tick-hook t)
 (setq org-pomodoro-finished-hook t)
 (setq org-pomodoro-started-hook t)
-(setq org-pomodoro-length 35)
-(setq org-pomodoro-short-break-length 5)
+(setq org-pomodoro-length 60)
+(setq org-pomodoro-short-break-length 10)
 (setq org-pomodoro-long-break-length 30)
 (setq org-pomodoro-ticking-sound-p nil)
 
@@ -234,6 +264,13 @@ Changing default sounds
 ;;   (defalias 'browse-web #'eaf-open-browser))
 ;; (require 'eaf-browser)
 ;; (require 'eaf-evil)
+#+end_src
+** Debugger
+*** Python
+#+begin_src emacs-lisp
+(after! dap-mode
+  (setq dap-python-debugger 'debugpy))
+
 #+end_src
 * Custom Keybindings
 #+begin_src emacs-lisp

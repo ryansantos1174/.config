@@ -48,6 +48,7 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
+(package! org-roam)
 (package! exwm)
 (package! org-pomodoro)
 (package! org-bullets)
